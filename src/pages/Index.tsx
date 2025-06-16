@@ -25,7 +25,7 @@ const Index = () => {
         <header className="p-6 text-center bg-black/20 backdrop-blur-md border-b border-white/10">
           <div className="flex items-center justify-center gap-3 mb-3">
             <div className="w-10 h-10 rounded-full bg-gradient-to-r from-red to-red-500 flex items-center justify-center bg-zinc-950">
-              <Circle className="w-5 h-5 text-white opacity-1" />
+              <Circle className="w-5 h-5 text-white " />
             </div>
             <h1 className="text-3xl font-bold bg-gradient-to-r from-white via-gold to-red-400 bg-clip-text text-transparent">Techno Sutra - Stem Array</h1>
           </div>
