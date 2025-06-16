@@ -1,6 +1,6 @@
 
 import { Card } from "@/components/ui/card";
-import { Lotus } from "lucide-react";
+import { Flower } from "lucide-react";
 
 const bodhisattvas = [
   { name: "Avalokiteshvara", description: "Compaixão", color: "from-blue-600 to-blue-800" },
@@ -16,7 +16,7 @@ const BodhisattvaGallery = () => {
     <div className="space-y-4">
       <div className="text-center mb-4">
         <div className="flex items-center justify-center gap-2 mb-2">
-          <Lotus className="w-5 h-5 text-gold" />
+          <Flower className="w-5 h-5 text-gold" />
           <h3 className="font-semibold text-gold">Bodhisattvas</h3>
         </div>
         <p className="text-xs text-gray-400">55 Mestres do Sutra</p>
@@ -30,7 +30,7 @@ const BodhisattvaGallery = () => {
           >
             <div className="p-3">
               <div className={`w-full h-16 bg-gradient-to-br ${bodhisattva.color} rounded-md mb-2 flex items-center justify-center group-hover:scale-105 transition-transform`}>
-                <Lotus className="w-6 h-6 text-white/80" />
+                <Flower className="w-6 h-6 text-white/80" />
               </div>
               <h4 className="text-xs font-medium text-white mb-1 text-center">
                 {bodhisattva.name}

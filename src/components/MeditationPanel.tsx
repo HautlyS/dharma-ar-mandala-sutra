@@ -1,7 +1,7 @@
 
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Om } from "lucide-react";
+import { Circle } from "lucide-react";
 import { useState } from "react";
 
 const MeditationPanel = () => {
@@ -11,7 +11,7 @@ const MeditationPanel = () => {
     <Card className="bg-black/40 border-purple-500/30 backdrop-blur-sm">
       <div className="p-4">
         <div className="flex items-center gap-2 mb-3">
-          <Om className="w-4 h-4 text-purple-400 animate-pulse" />
+          <Circle className="w-4 h-4 text-purple-400 animate-pulse" />
           <h3 className="font-semibold text-purple-300">Prática Meditativa</h3>
         </div>
         

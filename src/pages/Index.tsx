@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { Dharma, Lotus, Om } from "lucide-react";
+import { Compass, Flower, Circle } from "lucide-react";
 import CharacterDisplay from "@/components/CharacterDisplay";
 import BodhisattvaGallery from "@/components/BodhisattvaGallery";
 import TeachingPanel from "@/components/TeachingPanel";
@@ -27,11 +27,11 @@ const Index = () => {
         {/* Header */}
         <header className="p-4 text-center border-b border-gold/20">
           <div className="flex items-center justify-center gap-2 mb-2">
-            <Om className="w-6 h-6 text-gold animate-pulse" />
+            <Circle className="w-6 h-6 text-gold animate-pulse" />
             <h1 className="text-2xl font-bold bg-gradient-to-r from-gold to-red-400 bg-clip-text text-transparent">
               Gandavyuha Sutra
             </h1>
-            <Om className="w-6 h-6 text-gold animate-pulse" />
+            <Circle className="w-6 h-6 text-gold animate-pulse" />
           </div>
           <Badge variant="outline" className="border-red-500 text-red-300">
             QR Escaneado - Parque das Águas
@@ -56,7 +56,7 @@ const Index = () => {
             <Card className="bg-black/40 border-gold/30 backdrop-blur-sm">
               <div className="p-4">
                 <div className="flex items-center gap-2 mb-2">
-                  <Dharma className="w-5 h-5 text-gold" />
+                  <Compass className="w-5 h-5 text-gold" />
                   <h3 className="font-semibold text-gold">Caminho de Sudhana</h3>
                 </div>
                 <Progress value={42} className="mb-2" />

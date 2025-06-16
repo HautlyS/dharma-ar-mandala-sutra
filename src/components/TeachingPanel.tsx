@@ -1,14 +1,14 @@
 
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Dharma } from "lucide-react";
+import { Compass } from "lucide-react";
 
 const TeachingPanel = () => {
   return (
     <Card className="bg-black/40 border-blue-500/30 backdrop-blur-sm">
       <div className="p-4">
         <div className="flex items-center gap-2 mb-3">
-          <Dharma className="w-4 h-4 text-blue-400" />
+          <Compass className="w-4 h-4 text-blue-400" />
           <h3 className="font-semibold text-blue-300">Ensinamento Atual</h3>
         </div>
         
