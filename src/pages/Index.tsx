@@ -20,7 +20,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-red-900 to-blue-900 text-white overflow-hidden">
       {/* Background Mandala Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="w-full h-full bg-[url('data:image/svg+xml,%3Csvg width="100" height="100" xmlns="http://www.w3.org/2000/svg"%3E%3Cdefs%3E%3Cpattern id="mandala" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"%3E%3Ccircle cx="50" cy="50" r="40" fill="none" stroke="red" stroke-width="1" opacity="0.3"/%3E%3Ccircle cx="50" cy="50" r="25" fill="none" stroke="gold" stroke-width="1" opacity="0.3"/%3E%3C/pattern%3E%3C/defs%3E%3Crect width="100" height="100" fill="url(%23mandala)"/%3E%3C/svg%3E')] animate-pulse"></div>
+        <div className="w-full h-full bg-[url('data:image/svg+xml,%3Csvg%20width%3D%22100%22%20height%3D%22100%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cdefs%3E%3Cpattern%20id%3D%22mandala%22%20x%3D%220%22%20y%3D%220%22%20width%3D%22100%22%20height%3D%22100%22%20patternUnits%3D%22userSpaceOnUse%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2240%22%20fill%3D%22none%22%20stroke%3D%22red%22%20stroke-width%3D%221%22%20opacity%3D%220.3%22/%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2225%22%20fill%3D%22none%22%20stroke%3D%22gold%22%20stroke-width%3D%221%22%20opacity%3D%220.3%22/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22url(%23mandala)%22/%3E%3C/svg%3E')] animate-pulse"></div>
       </div>
 
       <div className="relative z-10 flex flex-col h-screen">
