@@ -17,7 +17,7 @@ const Index = () => {
   const [activeSection, setActiveSection] = useState("dharma");
 
   return (
-    <div className="min-h-screen text-white overflow-hidden relative">
+    <div className="min-h-screen text-white overflow-hidden relative bg-black">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
@@ -25,57 +25,57 @@ const Index = () => {
           alt="Mystical background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80"></div>
       </div>
 
-      <div className="relative z-10 flex flex-col h-screen">
-        {/* Header */}
-        <header className="p-4 text-center border-b border-gold/20 bg-black/20 backdrop-blur-sm">
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <Circle className="w-6 h-6 text-gold animate-pulse" />
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-gold to-red-400 bg-clip-text text-transparent">
-              Gandavyuha Sutra
+      <div className="relative z-10 flex flex-col h-screen max-w-6xl mx-auto">
+        {/* Modern Header */}
+        <header className="p-6 text-center bg-black/20 backdrop-blur-md border-b border-white/10">
+          <div className="flex items-center justify-center gap-3 mb-3">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-gold to-red-500 flex items-center justify-center">
+              <Circle className="w-5 h-5 text-white" />
+            </div>
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-white via-gold to-red-400 bg-clip-text text-transparent">
+              Gandavyuha
             </h1>
-            <Circle className="w-6 h-6 text-gold animate-pulse" />
           </div>
-          <Badge variant="outline" className="border-red-500 text-red-300">
-            QR Escaneado - Parque das Águas
+          <Badge variant="outline" className="border-red-500/50 text-red-300 bg-red-500/10 backdrop-blur-sm">
+            🔗 QR Escaneado - Parque das Águas
           </Badge>
         </header>
 
-        {/* Main Content */}
-        <div className="flex-1 grid grid-cols-12 gap-4 p-4">
-          {/* Left Sidebar - Bodhisattva Gallery */}
+        {/* Main Content Grid */}
+        <div className="flex-1 p-6 grid grid-cols-12 gap-6">
+          {/* Left Sidebar - Compressed Bodhisattva Gallery */}
           <div className="col-span-3">
             <BodhisattvaGallery />
           </div>
 
-          {/* Center - Character Display */}
+          {/* Center - Main Character Display */}
           <div className="col-span-6">
             <CharacterDisplay />
           </div>
 
-          {/* Right Sidebar - Info Panels */}
+          {/* Right Sidebar - Info Stack */}
           <div className="col-span-3 space-y-4">
-            {/* Progress Panel */}
-            <Card className="bg-black/40 border-gold/30 backdrop-blur-sm">
+            {/* Progress Card */}
+            <Card className="bg-black/50 border-white/10 backdrop-blur-md">
               <div className="p-4">
-                <div className="flex items-center gap-2 mb-2">
-                  <Compass className="w-5 h-5 text-gold" />
-                  <h3 className="font-semibold text-gold">Caminho de Sudhana</h3>
-                </div>
-                <Progress value={42} className="mb-2" />
-                <p className="text-sm text-gray-300">23 de 55 Conexões</p>
-                <p className="text-xs text-gray-400">Águas da Prata - SP</p>
-                
-                <div className="flex gap-2 mt-3">
-                  <div className="w-8 h-8 rounded-full bg-blue-500/20 border border-blue-400 flex items-center justify-center">
-                    <span className="text-xs">S</span>
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center">
+                    <Compass className="w-4 h-4 text-blue-400" />
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-gold/20 border border-gold flex items-center justify-center">
-                    <span className="text-xs">M</span>
+                  <div>
+                    <h3 className="font-semibold text-white text-sm">Progresso</h3>
+                    <p className="text-xs text-gray-400">Caminho de Sudhana</p>
                   </div>
                 </div>
+                <Progress value={42} className="mb-2 h-2" />
+                <div className="flex justify-between text-xs text-gray-400 mb-3">
+                  <span>23 de 55</span>
+                  <span>42%</span>
+                </div>
+                <p className="text-xs text-blue-300">📍 Águas da Prata - SP</p>
               </div>
             </Card>
 
@@ -85,7 +85,7 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Bottom Navigation */}
+        {/* Modern Bottom Navigation */}
         <NavigationBar activeSection={activeSection} setActiveSection={setActiveSection} />
       </div>
     </div>
