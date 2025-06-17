@@ -38,9 +38,16 @@ const ModelViewer = ({ modelUrl, characterName }: ModelViewerProps) => {
 
   useEffect(() => {
     const modelViewer = modelViewerRef.current;
-    if (modelViewer) {
-      // Configurações do modelo
+    if (modelViewer && modelUrl) {
+      setIsLoading(true);
+      setHasError(false);
+      
+      // Set model source directly
       modelViewer.src = modelUrl;
+      
+      // Apply cyberpunk styling
+      modelViewer.style.width = "100%";
+      modelViewer.style.height = "100%";
       modelViewer.style.backgroundColor = 'transparent';
       modelViewer.style.mixBlendMode = 'luminosity';
       
@@ -61,8 +68,10 @@ const ModelViewer = ({ modelUrl, characterName }: ModelViewerProps) => {
       modelViewer.addEventListener('error', handleError);
 
       return () => {
-        modelViewer.removeEventListener('load', handleLoad);
-        modelViewer.removeEventListener('error', handleError);
+        if (modelViewer) {
+          modelViewer.removeEventListener('load', handleLoad);
+          modelViewer.removeEventListener('error', handleError);
+        }
       };
     }
   }, [modelUrl, characterName]);
@@ -79,25 +88,26 @@ const ModelViewer = ({ modelUrl, characterName }: ModelViewerProps) => {
   };
 
   return (
-    <div className="relative w-full h-full rounded-lg overflow-hidden">
+    <div className="relative w-full h-full overflow-hidden">
       {/* Loading State */}
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-10">
+        <div className="absolute inset-0 flex items-center justify-center bg-black/80 backdrop-blur-sm z-20">
           <div className="text-center">
-            <div className="animate-spin w-8 h-8 border-2 border-cyan-400 border-t-transparent rounded-full mx-auto mb-2"></div>
-            <p className="text-cyan-300 text-sm font-mono">Carregando modelo 3D...</p>
+            <div className="animate-spin w-12 h-12 border-2 border-cyan-400 border-t-transparent rounded-full mx-auto mb-4"></div>
+            <p className="text-cyan-300 text-sm font-mono">CARREGANDO MODELO 3D...</p>
+            <p className="text-cyan-500/60 text-xs font-mono mt-1">{characterName}</p>
           </div>
         </div>
       )}
 
       {/* Error State */}
       {hasError && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-10">
+        <div className="absolute inset-0 flex items-center justify-center bg-black/80 backdrop-blur-sm z-20">
           <div className="text-center text-red-400">
-            <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-2 border border-red-500/50">
+            <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4 border border-red-500/50">
               <span className="text-red-400 text-2xl">⚠</span>
             </div>
-            <p className="text-sm font-mono">Erro ao carregar modelo 3D</p>
+            <p className="text-sm font-mono">ERRO AO CARREGAR MODELO 3D</p>
             <p className="text-xs text-red-300/70 font-mono mt-1">{characterName}</p>
           </div>
         </div>
@@ -107,7 +117,7 @@ const ModelViewer = ({ modelUrl, characterName }: ModelViewerProps) => {
       {arSupported && !isLoading && !hasError && (
         <button
           onClick={startAR}
-          className="absolute top-4 right-4 z-20 bg-cyan-500/30 border border-cyan-400/50 text-cyan-300 px-3 py-1 rounded-lg text-xs font-mono hover:bg-cyan-500/40 backdrop-blur-sm"
+          className="absolute top-4 right-4 z-30 bg-cyan-500/30 border border-cyan-400/50 text-cyan-300 px-4 py-2 rounded-lg text-xs font-mono hover:bg-cyan-500/40 backdrop-blur-sm transition-all duration-300"
         >
           AR MODE
         </button>
@@ -123,18 +133,13 @@ const ModelViewer = ({ modelUrl, characterName }: ModelViewerProps) => {
         rotation-per-second="7deg"
         ar={arSupported}
         ar-modes="webxr scene-viewer quick-look"
-        style={{
-          width: "100%",
-          height: "100%",
-          background: "transparent"
-        }}
       />
 
-      {/* Holographic Overlay */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/10 via-transparent to-purple-500/10 animate-pulse"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent"></div>
-        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-purple-400/60 to-transparent"></div>
+      {/* Cyberpunk Overlay Effects */}
+      <div className="absolute inset-0 pointer-events-none z-10">
+        <div className="absolute inset-0 bg-gradient-to-t from-cyan-500/5 via-transparent to-purple-500/5"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent"></div>
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-400/60 to-transparent"></div>
       </div>
     </div>
   );

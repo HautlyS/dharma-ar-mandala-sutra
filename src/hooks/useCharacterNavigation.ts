@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from "react";
 import { characters } from "@/data/characters";
-import { Character } from "@/types/Character";
 
 export const useCharacterNavigation = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -30,7 +29,8 @@ export const useCharacterNavigation = () => {
     }
   };
 
-  const progress = (visitedCharacters.size / totalCharacters) * 100;
+  // Calculate progress based on current character position (1-56 = 1%-100%)
+  const progress = ((currentCharacter.id) / totalCharacters) * 100;
 
   return {
     currentCharacter,
