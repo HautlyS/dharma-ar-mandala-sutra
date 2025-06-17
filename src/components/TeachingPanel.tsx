@@ -1,9 +1,17 @@
 
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Compass } from "lucide-react";
+import { Compass, MapPin } from "lucide-react";
+import EditableText from "./EditableText";
+import { useCharacterNavigation } from "@/hooks/useCharacterNavigation";
+import { useEditableContent } from "@/hooks/useEditableContent";
 
 const TeachingPanel = () => {
+  const { currentCharacter } = useCharacterNavigation();
+  const { updateContent, getContent } = useEditableContent(currentCharacter.id);
+
+  const teaching = getContent(currentCharacter.id, 'teaching', currentCharacter.teaching || '');
+
   return (
     <Card className="bg-black/50 border-white/10 backdrop-blur-md">
       <div className="p-4">
@@ -18,13 +26,17 @@ const TeachingPanel = () => {
         </div>
         
         <h4 className="text-sm font-medium text-white mb-2">
-          A Natureza da Sabedoria
+          {currentCharacter.liberacao || "Sabedoria Transcendental"}
         </h4>
         
-        <p className="text-xs text-gray-300 mb-3 leading-relaxed">
-          "Como o espaço infinito não tem obstáculos, assim a mente do bodhisattva 
-          abraça todos os seres..."
-        </p>
+        <div className="mb-3">
+          <EditableText
+            text={teaching}
+            onSave={(newText) => updateContent(currentCharacter.id, 'teaching', newText)}
+            className="text-xs text-gray-300 leading-relaxed"
+            multiline
+          />
+        </div>
         
         <Button
           size="sm"
