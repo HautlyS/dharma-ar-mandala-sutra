@@ -41,19 +41,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -106,31 +99,139 @@
   }
 }
 
-/* Custom scroll bars for the spiritual theme */
+/* Cyberpunk Enhanced Scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #FFD700, #dc2626);
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #FFA500, #b91c1c);
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #00ffff, #9333ea, #ec4899);
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
 }
 
-/* Custom animations for spiritual elements */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #00d4ff, #a855f7, #f472b6);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+}
+
+/* Cyberpunk Animations */
 @keyframes lotus-bloom {
   0% { transform: scale(0.8) rotate(0deg); opacity: 0.5; }
   50% { transform: scale(1.1) rotate(180deg); opacity: 0.8; }
   100% { transform: scale(1) rotate(360deg); opacity: 1; }
 }
 
+@keyframes cyber-glow {
+  0%, 100% { 
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5), 0 0 10px rgba(0, 255, 255, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(0, 255, 255, 0.4);
+  }
+}
+
+@keyframes data-stream {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes hologram-flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes grid-move {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
 .lotus-animation {
   animation: lotus-bloom 3s ease-in-out infinite;
+}
+
+.cyber-glow {
+  animation: cyber-glow 2s ease-in-out infinite;
+}
+
+.data-stream {
+  animation: data-stream 3s linear infinite;
+}
+
+.hologram-flicker {
+  animation: hologram-flicker 0.1s ease-in-out infinite;
+}
+
+/* Neon Text Effects */
+.neon-text {
+  text-shadow: 
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 15px currentColor,
+    0 0 20px #00ffff,
+    0 0 35px #00ffff,
+    0 0 40px #00ffff;
+}
+
+/* Glassmorphism Effects */
+.glass-panel {
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Cyberpunk Progress Bar */
+.cyber-progress {
+  background: linear-gradient(90deg, #00ffff, #9333ea, #ec4899);
+  background-size: 200% 100%;
+  animation: progress-glow 2s ease-in-out infinite;
+}
+
+@keyframes progress-glow {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Holographic Button Effects */
+.holo-button {
+  background: linear-gradient(45deg, rgba(0, 255, 255, 0.1), rgba(147, 51, 234, 0.1));
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.holo-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.holo-button:hover::before {
+  animation: hologram-sweep 0.5s ease-in-out;
+  opacity: 1;
+}
+
+@keyframes hologram-sweep {
+  0% { transform: translateX(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* Sanskrit Font Enhancement */
+.font-sanskrit {
+  font-family: 'Noto Sans Devanagari', serif;
+  text-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
 }
