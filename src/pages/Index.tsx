@@ -30,18 +30,13 @@ const Index = () => {
         
         {/* Animated Grid Overlay */}
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `linear-gradient(rgba(0,255,255,0.3) 1px, transparent 1px), 
-                             linear-gradient(90deg, rgba(0,255,255,0.3) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px',
-            animation: 'grid-move 20s linear infinite'
-          }}></div>
+          <div className="absolute inset-0 cyberpunk-grid"></div>
         </div>
 
         {/* Holographic Scanning Lines */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-400/50 to-transparent animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-purple-400/50 to-transparent animate-pulse scanning-line"></div>
         </div>
       </div>
 
@@ -88,11 +83,7 @@ const Index = () => {
               <div className="p-4 relative">
                 {/* Grid Overlay */}
                 <div className="absolute inset-0 opacity-5">
-                  <div className="absolute inset-0" style={{
-                    backgroundImage: `linear-gradient(rgba(0,255,255,0.3) 1px, transparent 1px), 
-                                     linear-gradient(90deg, rgba(0,255,255,0.3) 1px, transparent 1px)`,
-                    backgroundSize: '10px 10px'
-                  }}></div>
+                  <div className="absolute inset-0 mini-grid"></div>
                 </div>
 
                 <div className="flex items-center gap-3 mb-4 relative z-10">
@@ -128,13 +119,6 @@ const Index = () => {
         {/* Enhanced Bottom Navigation */}
         <NavigationBar activeSection={activeSection} setActiveSection={setActiveSection} />
       </div>
-
-      <style jsx>{`
-        @keyframes grid-move {
-          0% { transform: translate(0, 0); }
-          100% { transform: translate(50px, 50px); }
-        }
-      `}</style>
     </div>
   );
 };
