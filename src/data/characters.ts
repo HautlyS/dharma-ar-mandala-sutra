@@ -1,0 +1,312 @@
+
+export interface Character {
+  id: number;
+  name: string;
+  liberacao: string;
+  description: string;
+  occupation: string;
+  significance: string;
+  location: string;
+  summary: string;
+  chapterFile: string;
+  qrUrl: string;
+  modelUrl: string;
+  glbStatus: boolean;
+  teaching?: string;
+  locationDescription?: string;
+}
+
+export const characters: Character[] = [
+  {
+    id: 1,
+    name: "Buda Śākyamuni",
+    liberacao: "-",
+    description: "",
+    occupation: "Buda",
+    significance: "O Iluminado",
+    location: "",
+    summary: "O Buda Śākyamuni está em Jetavana em Śrāvastī com cinco mil bodhisattvas e quinhentos śrāvakas. Em suas mentes, eles desejam um ensinamento e, portanto, o Buda entra em samādhi, e incontáveis reinos búdicos aparecem ali dentro de um vasto kūṭāgāra.",
+    chapterFile: "01 THE SETTING Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=1",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo1.glb",
+    glbStatus: true,
+    teaching: "O despertar da consciência búdica através da compreensão da natureza da realidade.",
+    locationDescription: "Jetavana - Śrāvastī"
+  },
+  {
+    id: 2,
+    name: "Samantabhadra",
+    liberacao: "-",
+    description: "",
+    occupation: "Bodhisattva",
+    significance: "All Good",
+    location: "",
+    summary: "O bodhisattva Samantabhadra recita versos para os bodhisattvas descrevendo a inconcebível penetração dos fenómenos pelos budas.",
+    chapterFile: "02 SAMANTABHADRA Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=2",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo2.glb",
+    glbStatus: false,
+    teaching: "A penetração inconcebível dos fenômenos pelos budas através da manifestação de incontáveis reinos.",
+    locationDescription: "Reino dos Bodhisattvas"
+  },
+  {
+    id: 3,
+    name: "Manjushri",
+    liberacao: "-",
+    description: "",
+    occupation: "Bodhisattva",
+    significance: "Beautiful One with Auspiciousness",
+    location: "",
+    summary: "Mañjuśrī ensina dez motivações e vai para a Floresta de Vicitrasāladhvajavyūha, perto da cidade de Dhanyākara.",
+    chapterFile: "03 MAÑJUŚRĪ Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=3",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo3.glb",
+    glbStatus: true,
+    teaching: "A natureza dos budas e o desenvolvimento da conduta de bodhisattva confiando em kalyāṇamitras.",
+    locationDescription: "Floresta de Vicitrasāladhvajavyūha - Dhanyākara"
+  },
+  {
+    id: 4,
+    name: "Meghaśrī",
+    liberacao: "",
+    description: "",
+    occupation: "Monge",
+    significance: "Glória da Nuvem",
+    location: "",
+    summary: "Meghaśrī descreve como ele pode ver todos os tathāgatas em todas as direções.",
+    chapterFile: "04 MEGHAŚRĪ Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=4",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo4.glb",
+    glbStatus: true,
+    teaching: "A visão de todos os tathāgatas em todas as direções através da contemplação.",
+    locationDescription: "Planalto no cume da montanha - Rāmāvarānta"
+  },
+  {
+    id: 5,
+    name: "Sāgaramegha",
+    liberacao: "Olhos Que-Tudo-Vêem",
+    description: "",
+    occupation: "Monge",
+    significance: "Nuvem do Oceano",
+    location: "",
+    summary: "Concentrou-se no oceano durante doze anos e viu surgir um buda sentado numa flor de lótus gigante.",
+    chapterFile: "05 SĀGARAMEGHA Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=5",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo5.glb",
+    glbStatus: true,
+    teaching: "A concentração no oceano e suas qualidades para ver a manifestação dos budas.",
+    locationDescription: "Oceano Sagrado"
+  },
+  {
+    id: 6,
+    name: "Supratiṣṭhita",
+    liberacao: "Ápice Desimpedido",
+    description: "",
+    occupation: "Monge",
+    significance: "Firmemente Estabelecido",
+    location: "",
+    summary: "Caminha no céu com divindades, alcançou sabedoria do ápice desimpedido.",
+    chapterFile: "06 SUPRATIṢṬHITA Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=6",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo6.glb",
+    glbStatus: false,
+    teaching: "O conhecimento de vidas passadas e a realização de milagres através da sabedoria desimpedida.",
+    locationDescription: "Céus com Divindades"
+  },
+  {
+    id: 7,
+    name: "Megha",
+    liberacao: "",
+    description: "",
+    occupation: "Gramático",
+    significance: "Nuvem",
+    location: "",
+    summary: "Ensina num trono em Vajrapura, alcançou o poder de retenção de Sarasvatī.",
+    chapterFile: "07 MEGHA Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=7",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo7.glb",
+    glbStatus: false,
+    teaching: "O conhecimento das línguas de todos os diferentes tipos de seres em todos os mundos.",
+    locationDescription: "Pátio da cidade - Vajrapura"
+  },
+  {
+    id: 8,
+    name: "Muktaka",
+    liberacao: "Exibição Desimpedida",
+    description: "Incontáveis budas, seus feitos, seus reinos e suas pupilas tornam-se visíveis dentro do seu corpo",
+    occupation: "Comunidade de meditação",
+    significance: "Libertado",
+    location: "",
+    summary: "Através da meditação, incontáveis budas se tornam visíveis dentro do seu corpo.",
+    chapterFile: "08 MUKTAKA Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=8",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo8.glb",
+    glbStatus: true,
+    teaching: "A assembleia de todos os reinos búdicos através da meditação profunda.",
+    locationDescription: "Vanavāsī"
+  },
+  {
+    id: 9,
+    name: "Sāgaradhvaja",
+    liberacao: "",
+    description: "",
+    occupation: "Monge",
+    significance: "Bandeira da Flecha",
+    location: "",
+    summary: "Sentado em meditação, emana vários tipos de seres e bodhisattvas de seu corpo.",
+    chapterFile: "09 SĀGARADHVAJA Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=9",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo9.glb",
+    glbStatus: true,
+    teaching: "A emanação de seres e bodhisattvas através da meditação samādhi.",
+    locationDescription: "Milaspharaṇa"
+  },
+  {
+    id: 10,
+    name: "Āśā",
+    liberacao: "Estandarte da Bem-Aventurança Sem Tristeza",
+    description: "Sentada em um grande trono feito da essência do ouro, adornada com uma coroa de pérolas e joias preciosas",
+    occupation: "Devota leiga",
+    significance: "Esperança",
+    location: "",
+    summary: "Ensina no Parque Samantavyūha sobre a dedicação dos bodhisattvas ao bem-estar de todos os seres.",
+    chapterFile: "10 ĀŚĀ Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=10",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo10.glb",
+    glbStatus: false,
+    teaching: "A dedicação dos bodhisattvas ao bem-estar de todos os seres através da bem-aventurança.",
+    locationDescription: "Parque Samantavyūha"
+  },
+  // Continue with remaining characters...
+  {
+    id: 21,
+    name: "Mahāprabha",
+    liberacao: "Estandarte do Grande Amor de Inúmeros Budas",
+    description: "",
+    occupation: "Rei",
+    significance: "Grande Luz",
+    location: "",
+    summary: "Rei de Suprabha que fornece a todos no seu reino tudo o que desejarem.",
+    chapterFile: "21 MAHĀPRABHA Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=21",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo21.glb",
+    glbStatus: true,
+    teaching: "O grande amor através da generosidade e do fornecimento das necessidades de todos os seres.",
+    locationDescription: "Cidade de Suprabha"
+  },
+  {
+    id: 27,
+    name: "Siṃhavijṛmbhitā",
+    liberacao: "A Erradicação de Toda a Presunção",
+    description: "Monja - senta-se em todos os tronos",
+    occupation: "Freira",
+    significance: "Cheia de Força de Leão",
+    location: "",
+    summary: "Ensina o Dharma em vários tronos no parque Sūryaprabha para diferentes tipos de seres.",
+    chapterFile: "27 SIṂHAVIJṚMBHITĀ Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=27",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo27.glb",
+    glbStatus: true,
+    teaching: "A erradicação da presunção através de manifestações em vários mundos.",
+    locationDescription: "Parque Sūryaprabha - Kaliṅgavana"
+  },
+  {
+    id: 28,
+    name: "Vasumitrā",
+    liberacao: "A Completa Realização da Liberdade do Desejo",
+    description: "",
+    occupation: "Mulher leiga",
+    significance: "Amiga da Terra",
+    location: "",
+    summary: "Cortesã que liberta os seres do desejo através de sua beleza e ensinamentos.",
+    chapterFile: "28 VASUMITRĀ Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=28",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo28.glb",
+    glbStatus: true,
+    teaching: "A liberação do desejo através da transformação da atração em sabedoria.",
+    locationDescription: "Ratnavyūha - Durga"
+  },
+  {
+    id: 29,
+    name: "Veṣṭhila",
+    liberacao: "Exibição Incessante da Família dos Budas",
+    description: "",
+    occupation: "Chefe de família",
+    significance: "—",
+    location: "",
+    summary: "Através do samādhi vê incontáveis budas do passado, presente e futuro.",
+    chapterFile: "29 VEṢṬHILA Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=29",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo29.glb",
+    glbStatus: true,
+    teaching: "A visão da família dos budas através dos três tempos via samādhi.",
+    locationDescription: "Śubhapāraṃgama"
+  },
+  {
+    id: 30,
+    name: "Avalokiteśvara",
+    liberacao: "Portão Desimpedido Para A Grande Compaixão",
+    description: "",
+    occupation: "Bodhisattva",
+    significance: "Senhor que Ouve os Clamores do Mundo",
+    location: "",
+    summary: "Beneficia os seres através de várias manifestações, libertando-os de vários tipos de medo.",
+    chapterFile: "30 AVALOKITEŚVARA Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=30",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo30.glb",
+    glbStatus: true,
+    teaching: "A grande compaixão manifestada através de várias formas para libertar os seres do medo.",
+    locationDescription: "Montanha Potalaka"
+  },
+  {
+    id: 31,
+    name: "Ananyagāmin",
+    liberacao: "Surgimento de cada portal aos pés do Buda Samantaśrīsaṃbhava",
+    description: "",
+    occupation: "Viajante universal",
+    significance: "Aquele que Vai Sem Obstáculos",
+    location: "",
+    summary: "Viajou por incontáveis reinos fazendo oferendas a todos os budas.",
+    chapterFile: "31 ANANYAGĀMIN Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=31",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo31.glb",
+    glbStatus: true,
+    teaching: "A jornada através de incontáveis reinos para beneficiar todos os seres.",
+    locationDescription: "Reino Oriental de Śrīgarbhavatī"
+  },
+  {
+    id: 32,
+    name: "Mahādeva",
+    liberacao: "Rede de nuvens",
+    description: "Shiva",
+    occupation: "Deva (divindade)",
+    significance: "Grande Deus",
+    location: "",
+    summary: "Manifesta montes de jóias para oferendas aos budas através da liberação rede de nuvens.",
+    chapterFile: "32 MAHĀDEVA Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=32",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo32.glb",
+    glbStatus: true,
+    teaching: "A manifestação de oferendas preciosas através do poder divino das nuvens.",
+    locationDescription: "Templo Central - Dvāravatī"
+  },
+  {
+    id: 33,
+    name: "Sthāvarā",
+    liberacao: "A essência da sabedoria invencível",
+    description: "",
+    occupation: "Deusa da Terra",
+    significance: "A Terra",
+    location: "",
+    summary: "Deusa da terra que demonstra os méritos acumulados por Sudhana em vidas passadas.",
+    chapterFile: "33 STHĀVARĀ Stem Array.pdf",
+    qrUrl: "https://technosutra21.github.io/technosutra/?model=33",
+    modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo33.glb",
+    glbStatus: true,
+    teaching: "A sabedoria invencível manifestada através dos tesouros da terra.",
+    locationDescription: "Bodhimaṇḍa - Magadha"
+  }
+];
+
+// Export total count for progress calculation
+export const TOTAL_CHARACTERS = 56;
