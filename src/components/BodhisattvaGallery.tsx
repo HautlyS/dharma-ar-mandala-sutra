@@ -1,7 +1,7 @@
 
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Flower, Download, CheckCircle, XCircle } from "lucide-react";
+import { Flower, CheckCircle, XCircle, Lotus, Crown } from "lucide-react";
 import { characters } from "@/data/characters";
 
 interface BodhisattvaGalleryProps {
@@ -10,30 +10,40 @@ interface BodhisattvaGalleryProps {
 }
 
 const BodhisattvaGallery = ({ currentCharacterId, onCharacterSelect }: BodhisattvaGalleryProps) => {
-  // Show first 8 characters in detail, then summary for others
-  const displayedCharacters = characters.slice(0, 8);
-  const remainingCount = characters.length - 8;
-
   return (
     <div className="space-y-4">
-      <div className="text-center mb-4">
-        <h3 className="font-semibold text-white mb-1 font-mono text-lg">MESTRES</h3>
-        <p className="text-xs text-cyan-400 font-mono">{characters.length} BODHISATTVAS</p>
+      {/* Enhanced Header with Tibetan Elements */}
+      <div className="text-center mb-4 bg-gradient-to-r from-cyan-900/20 to-purple-900/20 rounded-lg p-4 border border-cyan-500/30">
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <Crown className="w-5 h-5 text-gold animate-pulse" />
+          <h3 className="font-semibold text-white mb-1 font-mono text-lg neon-text">MESTRES SAGRADOS</h3>
+          <Lotus className="w-5 h-5 text-cyan-400 animate-pulse" />
+        </div>
+        <p className="text-xs text-cyan-400 font-mono">56 BODHISATTVAS COMPLETOS</p>
+        <div className="text-gold/60 text-xs font-sanskrit mt-1">॥ सर्वे भवन्तु सुखिनः ॥</div>
       </div>
 
-      <div className="space-y-3 max-h-[70vh] overflow-y-auto scrollbar-thin scrollbar-track-gray-800 scrollbar-thumb-cyan-500">
-        {displayedCharacters.map((character) => (
+      {/* All Characters Display */}
+      <div className="space-y-2 max-h-[70vh] overflow-y-auto scrollbar-thin scrollbar-track-gray-800 scrollbar-thumb-gradient">
+        {characters.map((character) => (
           <Card
             key={character.id}
             onClick={() => onCharacterSelect(character.id)}
-            className={`bg-black/40 backdrop-blur-xl border-cyan-500/30 hover:border-cyan-400/60 transition-all duration-300 cursor-pointer group shadow-lg hover:shadow-cyan-500/20 ${
-              character.id === currentCharacterId ? 'border-cyan-400/80 bg-cyan-500/10 shadow-cyan-500/30' : ''
+            className={`bg-black/40 backdrop-blur-xl border-cyan-500/30 hover:border-cyan-400/60 transition-all duration-300 cursor-pointer group shadow-lg hover:shadow-cyan-500/20 hover:scale-[1.02] ${
+              character.id === currentCharacterId ? 'border-cyan-400/80 bg-cyan-500/10 shadow-cyan-500/30 scale-[1.02]' : ''
             }`}
           >
             <div className="p-3">
               <div className="flex items-center gap-3">
                 <div className="relative">
-                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg border border-cyan-400/50">
+                  <div className={`w-12 h-12 bg-gradient-to-br ${
+                    character.occupation === 'Buda' ? 'from-gold to-yellow-600' :
+                    character.occupation === 'Bodhisattva' ? 'from-cyan-500 to-purple-600' :
+                    character.occupation === 'Arhat' ? 'from-orange-500 to-red-600' :
+                    character.occupation === 'Monge' ? 'from-orange-400 to-orange-600' :
+                    character.occupation === 'Freira' ? 'from-pink-500 to-purple-600' :
+                    'from-green-500 to-blue-600'
+                  } rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg border border-cyan-400/50`}>
                     <Flower className="w-5 h-5 text-white/90" />
                   </div>
                   {character.glbStatus ? (
@@ -41,64 +51,60 @@ const BodhisattvaGallery = ({ currentCharacterId, onCharacterSelect }: Bodhisatt
                   ) : (
                     <XCircle className="w-4 h-4 text-red-400 absolute -top-1 -right-1" />
                   )}
+                  {character.id === currentCharacterId && (
+                    <div className="absolute -inset-1 bg-cyan-400/30 rounded-full animate-pulse"></div>
+                  )}
                 </div>
-                <div className="flex-1">
-                  <h4 className="text-sm font-medium text-white mb-1 font-mono">
-                    {character.name}
-                  </h4>
-                  <p className="text-xs text-cyan-400 font-mono">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xs font-mono text-cyan-400">{character.id.toString().padStart(2, '0')}</span>
+                    <h4 className="text-sm font-medium text-white font-mono truncate">
+                      {character.name}
+                    </h4>
+                  </div>
+                  <p className="text-xs text-cyan-400 font-mono truncate">
                     {character.occupation}
                   </p>
-                  <p className="text-xs text-gray-400 mt-1">
+                  <p className="text-xs text-gray-400 truncate">
                     {character.significance}
                   </p>
                 </div>
-                {character.id === currentCharacterId && (
-                  <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-                )}
+                <div className="text-right">
+                  {character.id === currentCharacterId && (
+                    <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                  )}
+                </div>
               </div>
+              
+              {/* Liberation Teaching Badge */}
               {character.liberacao && character.liberacao !== "-" && (
-                <Badge variant="outline" className="mt-2 text-xs border-purple-500/50 text-purple-300 bg-purple-500/10 font-mono">
-                  {character.liberacao.substring(0, 30)}...
+                <Badge variant="outline" className="mt-2 text-xs border-purple-500/50 text-purple-300 bg-purple-500/10 font-mono w-full justify-center truncate">
+                  {character.liberacao}
                 </Badge>
+              )}
+              
+              {/* Location Info */}
+              {(character.location || character.locationDescription) && (
+                <div className="mt-1 text-xs text-gray-500 font-mono truncate">
+                  📍 {character.location || character.locationDescription}
+                </div>
               )}
             </div>
           </Card>
         ))}
+      </div>
 
-        {/* Remaining Characters Summary */}
-        {remainingCount > 0 && (
-          <Card className="bg-black/20 border-dashed border-cyan-500/30 backdrop-blur-xl">
-            <div className="p-4 text-center">
-              <p className="text-xs text-cyan-400 font-mono">+{remainingCount} OUTROS MESTRES</p>
-              <div className="flex justify-center mt-2 gap-1">
-                <div className="w-1 h-1 bg-cyan-400/50 rounded-full animate-pulse"></div>
-                <div className="w-1 h-1 bg-cyan-400/50 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
-                <div className="w-1 h-1 bg-cyan-400/50 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
-              </div>
-              <div className="mt-2 space-y-1">
-                {characters.slice(8, 15).map((char) => (
-                  <button
-                    key={char.id}
-                    onClick={() => onCharacterSelect(char.id)}
-                    className={`block w-full text-left px-2 py-1 rounded text-xs font-mono transition-colors ${
-                      char.id === currentCharacterId 
-                        ? 'bg-cyan-500/20 text-cyan-300' 
-                        : 'text-gray-500 hover:text-cyan-400 hover:bg-cyan-500/10'
-                    }`}
-                  >
-                    {char.id}. {char.name}
-                  </button>
-                ))}
-                {characters.length > 15 && (
-                  <p className="text-xs text-gray-600 font-mono mt-1">
-                    ... e mais {characters.length - 15} personagens
-                  </p>
-                )}
-              </div>
-            </div>
-          </Card>
-        )}
+      {/* Summary Footer */}
+      <div className="bg-black/20 border border-cyan-500/30 backdrop-blur-xl rounded-lg p-3 text-center">
+        <p className="text-xs text-cyan-400 font-mono mb-1">JORNADA COMPLETA</p>
+        <div className="flex justify-center gap-2 text-xs font-mono">
+          <span className="text-green-400">{characters.filter(c => c.glbStatus).length} MODELOS 3D</span>
+          <span className="text-gray-400">•</span>
+          <span className="text-blue-400">{characters.length} MESTRES</span>
+        </div>
+        <div className="text-gold/60 text-xs font-sanskrit mt-2">
+          ॐ मणि पद्मे हूँ ॐ
+        </div>
       </div>
     </div>
   );
