@@ -1,5 +1,6 @@
 
-import { Compass, Flower, Circle, Footprints } from "lucide-react";
+import { Compass, Flower, Circle, Footprints, Users, Cube, Info } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface NavigationBarProps {
   activeSection: string;
@@ -7,11 +8,13 @@ interface NavigationBarProps {
 }
 
 const NavigationBar = ({ activeSection, setActiveSection }: NavigationBarProps) => {
+  const navigate = useNavigate();
+
   const navItems = [
-    { id: "dharma", icon: Compass, label: "Dharma" },
-    { id: "trilha", icon: Footprints, label: "Trilha" },
-    { id: "sangha", icon: Flower, label: "Sangha" },
-    { id: "sadhana", icon: Circle, label: "Práticas" },
+    { id: "dharma", icon: Compass, label: "Dharma", action: () => setActiveSection("dharma") },
+    { id: "teachers", icon: Users, label: "Mestres", action: () => navigate("/teachers") },
+    { id: "gallery", icon: Cube, label: "3D", action: () => navigate("/gallery") },
+    { id: "about", icon: Info, label: "Sobre", action: () => navigate("/about") },
   ];
 
   return (
@@ -24,10 +27,10 @@ const NavigationBar = ({ activeSection, setActiveSection }: NavigationBarProps) 
           return (
             <button
               key={item.id}
-              onClick={() => setActiveSection(item.id)}
+              onClick={item.action}
               className={`flex flex-col items-center space-y-2 transition-all duration-300 ${
-                isActive 
-                  ? "text-gold scale-110" 
+                isActive
+                  ? "text-gold scale-110"
                   : "text-gray-400 hover:text-white"
               }`}
             >

@@ -1,9 +1,9 @@
+/* Import Sanskrit font - must be first */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Import Sanskrit font */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
 
@@ -208,22 +208,22 @@ model-viewer::part(default-ar-button) {
   z-index: -1;
 }
 
-/* Custom scroll bars for the spiritual theme */
-::-webkit-scrollbar {
-  width: 8px;
+/* Enhanced spiritual scroll bars */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
 }
 
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
 }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #FFD700, #dc2626);
-  border-radius: 4px;
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #FFD700, #00ffff);
+  border-radius: 3px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #FFA500, #b91c1c);
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #FFA500, #00cccc);
 }
 
 /* Custom animations for spiritual elements */
@@ -233,6 +233,28 @@ model-viewer::part(default-ar-button) {
   100% { transform: scale(1) rotate(360deg); opacity: 1; }
 }
 
+@keyframes sanskrit-glow {
+  0%, 100% { text-shadow: 0 0 5px currentColor; }
+  50% { text-shadow: 0 0 15px currentColor, 0 0 25px currentColor; }
+}
+
 .lotus-animation {
   animation: lotus-bloom 3s ease-in-out infinite;
+}
+
+.font-sanskrit {
+  font-family: 'Noto Sans Devanagari', sans-serif;
+  animation: sanskrit-glow 2s ease-in-out infinite;
+}
+
+/* Loading states */
+.loading-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }

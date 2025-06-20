@@ -13,6 +13,27 @@ export interface Character {
   glbStatus: boolean;
   teaching?: string;
   locationDescription?: string;
+  // Enhanced fields
+  category?: 'buddha' | 'bodhisattva' | 'arhat' | 'deva' | 'human' | 'other';
+  difficulty?: 'beginner' | 'intermediate' | 'advanced';
+  keywords?: string[];
+  relatedCharacters?: number[];
+  historicalPeriod?: string;
+  culturalContext?: string;
+  practiceType?: string[];
+  symbolism?: string[];
+  mantra?: string;
+  mudra?: string;
+  color?: string;
+  element?: string;
+  direction?: string;
+  season?: string;
+  timeOfDay?: string;
+  offerings?: string[];
+  benefits?: string[];
+  warnings?: string[];
+  prerequisites?: string[];
+  furtherReading?: string[];
 }
 
 export const characters: Character[] = [
@@ -20,7 +41,7 @@ export const characters: Character[] = [
     id: 1,
     name: "Buda Śākyamuni",
     liberacao: "-",
-    description: "",
+    description: "O Buda histórico, fundador do Budismo, nascido como príncipe Siddhārtha Gautama. Após anos de busca espiritual, alcançou a iluminação sob a árvore Bodhi e dedicou sua vida a ensinar o Dharma.",
     occupation: "Buda",
     significance: "O Iluminado",
     location: "",
@@ -30,7 +51,27 @@ export const characters: Character[] = [
     modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo1.glb",
     glbStatus: true,
     teaching: "O despertar da consciência búdica através da compreensão da natureza da realidade.",
-    locationDescription: "Jetavana - Śrāvastī"
+    locationDescription: "Jetavana - Śrāvastī",
+    category: 'buddha',
+    difficulty: 'beginner',
+    keywords: ['iluminação', 'dharma', 'quatro nobres verdades', 'óctuplo caminho', 'nirvana'],
+    relatedCharacters: [2, 3, 37, 38, 43],
+    historicalPeriod: "Século VI-V a.C.",
+    culturalContext: "Índia Antiga, Reino de Śākya",
+    practiceType: ['meditação', 'ética', 'sabedoria'],
+    symbolism: ['lótus', 'roda do dharma', 'árvore bodhi'],
+    mantra: "Om Muni Muni Maha Muniye Svaha",
+    mudra: "Bhūmisparśa (tocando a terra)",
+    color: "Dourado",
+    element: "Terra",
+    direction: "Centro",
+    season: "Todas",
+    timeOfDay: "Aurora",
+    offerings: ['flores de lótus', 'incenso', 'velas', 'água pura'],
+    benefits: ['paz interior', 'sabedoria', 'compaixão', 'libertação do sofrimento'],
+    warnings: ['requer dedicação constante', 'caminho longo e desafiador'],
+    prerequisites: ['mente aberta', 'sinceridade', 'perseverança'],
+    furtherReading: ['Dhammapada', 'Sutta Pitaka', 'Biografia do Buda']
   },
   {
     id: 2,
@@ -52,7 +93,7 @@ export const characters: Character[] = [
     id: 3,
     name: "Manjushri",
     liberacao: "-",
-    description: "",
+    description: "Bodhisattva da Sabedoria, representado como um jovem príncipe portando a espada da sabedoria discriminativa que corta através da ignorância e do apego. É considerado a personificação da sabedoria búdica.",
     occupation: "Bodhisattva",
     significance: "Beautiful One with Auspiciousness",
     location: "",
@@ -62,7 +103,27 @@ export const characters: Character[] = [
     modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo3.glb",
     glbStatus: true,
     teaching: "A natureza dos budas e o desenvolvimento da conduta de bodhisattva confiando em kalyāṇamitras.",
-    locationDescription: "Floresta de Vicitrasāladhvajavyūha - Dhanyākara"
+    locationDescription: "Floresta de Vicitrasāladhvajavyūha - Dhanyākara",
+    category: 'bodhisattva',
+    difficulty: 'intermediate',
+    keywords: ['sabedoria', 'discriminação', 'conhecimento', 'estudo', 'análise'],
+    relatedCharacters: [1, 2, 30],
+    historicalPeriod: "Tradição Mahayana",
+    culturalContext: "Budismo do Norte da Índia, Tibet, China",
+    practiceType: ['estudo', 'contemplação', 'debate filosófico'],
+    symbolism: ['espada da sabedoria', 'livro sagrado', 'lótus azul'],
+    mantra: "Om Ah Ra Pa Ca Na Dhih",
+    mudra: "Vitarka (ensinamento)",
+    color: "Amarelo/Dourado",
+    element: "Éter",
+    direction: "Leste",
+    season: "Primavera",
+    timeOfDay: "Manhã",
+    offerings: ['livros sagrados', 'flores amarelas', 'cristais', 'mel'],
+    benefits: ['clareza mental', 'sabedoria discriminativa', 'sucesso nos estudos'],
+    warnings: ['pode gerar orgulho intelectual', 'equilibrar com compaixão'],
+    prerequisites: ['interesse genuíno no aprendizado', 'humildade'],
+    furtherReading: ['Prajñāpāramitā Sutras', 'Vimalakīrti Sutra']
   },
   {
     id: 4,
@@ -244,7 +305,7 @@ export const characters: Character[] = [
     id: 30,
     name: "Avalokiteśvara",
     liberacao: "Portão Desimpedido Para A Grande Compaixão",
-    description: "",
+    description: "Bodhisattva da Compaixão, conhecido por ouvir os clamores de sofrimento de todos os seres e responder com infinita misericórdia. Manifesta-se em múltiplas formas para ajudar os necessitados.",
     occupation: "Bodhisattva",
     significance: "Senhor que Ouve os Clamores do Mundo",
     location: "",
@@ -254,7 +315,27 @@ export const characters: Character[] = [
     modelUrl: "https://cdn.statically.io/gh/technosutra21/technosutra/master/modelo30.glb",
     glbStatus: true,
     teaching: "A grande compaixão manifestada através de várias formas para libertar os seres do medo.",
-    locationDescription: "Montanha Potalaka"
+    locationDescription: "Montanha Potalaka",
+    category: 'bodhisattva',
+    difficulty: 'beginner',
+    keywords: ['compaixão', 'misericórdia', 'proteção', 'cura', 'socorro'],
+    relatedCharacters: [1, 3, 56],
+    historicalPeriod: "Tradição Mahayana",
+    culturalContext: "Amplamente venerado na Ásia Oriental",
+    practiceType: ['compaixão', 'oração', 'recitação de mantras'],
+    symbolism: ['lótus branco', 'mil olhos', 'mil braços', 'vaso de néctar'],
+    mantra: "Om Mani Padme Hum",
+    mudra: "Añjali (oração)",
+    color: "Branco",
+    element: "Água",
+    direction: "Oeste",
+    season: "Outono",
+    timeOfDay: "Entardecer",
+    offerings: ['flores brancas', 'água pura', 'frutas doces', 'incenso suave'],
+    benefits: ['proteção', 'cura emocional', 'alívio do sofrimento', 'paz interior'],
+    warnings: ['não substituir ação própria por dependência'],
+    prerequisites: ['coração aberto', 'sinceridade', 'fé'],
+    furtherReading: ['Sutra do Coração', 'Karandavyuha Sutra', 'Lotus Sutra']
   },
   {
     id: 31,

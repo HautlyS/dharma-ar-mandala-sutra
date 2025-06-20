@@ -1,9 +1,10 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { Compass, Circle, Lotus, Crown } from "lucide-react";
+import { Compass, Circle, Crown, Flower } from "lucide-react";
 import CharacterDisplay from "@/components/CharacterDisplay";
 import BodhisattvaGallery from "@/components/BodhisattvaGallery";
 import TeachingPanel from "@/components/TeachingPanel";
@@ -11,11 +12,42 @@ import LocationPanel from "@/components/LocationPanel";
 import MeditationPanel from "@/components/MeditationPanel";
 import NavigationBar from "@/components/NavigationBar";
 import ModelViewer from "@/components/ModelViewer";
+import SearchBar from "@/components/SearchBar";
+import LoadingSkeleton from "@/components/LoadingSkeleton";
 import { useCharacterNavigation } from "@/hooks/useCharacterNavigation";
+import { useModelPreloader } from "@/hooks/useModelPreloader";
+import { Character } from "@/data/characters";
 
 const Index = () => {
+  const [searchParams] = useSearchParams();
   const [activeSection, setActiveSection] = useState("dharma");
+  const [showSearch, setShowSearch] = useState(false);
   const { currentCharacter, currentCharacterId, progress, goToCharacter, totalCharacters } = useCharacterNavigation();
+
+  // Handle search character selection
+  const handleSearchSelect = (character: Character) => {
+    goToCharacter(character.id);
+    setShowSearch(false);
+  };
+
+  // Handle URL parameters for direct character navigation
+  useEffect(() => {
+    const characterParam = searchParams.get('character');
+    if (characterParam) {
+      const characterId = parseInt(characterParam, 10);
+      if (!isNaN(characterId) && characterId >= 1 && characterId <= totalCharacters) {
+        goToCharacter(characterId);
+      }
+    }
+  }, [searchParams, goToCharacter, totalCharacters]);
+
+  // Preload adjacent models for better performance
+  useModelPreloader(currentCharacterId, {
+    preloadNext: 3,
+    preloadPrevious: 2,
+    preloadPopular: true,
+    priority: 'low'
+  });
 
   return (
     <div className="min-h-screen text-white overflow-hidden relative bg-black">
@@ -78,6 +110,15 @@ const Index = () => {
           <div className="text-gold/60 text-xs font-sanskrit mt-1">
             ॥ सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः ॥
           </div>
+
+          {/* Search Bar */}
+          <div className="mt-4 max-w-md mx-auto">
+            <SearchBar
+              onCharacterSelect={handleSearchSelect}
+              placeholder="Buscar mestres sagrados..."
+              className="w-full"
+            />
+          </div>
         </header>
 
         {/* Responsive Main Content Grid */}
@@ -94,12 +135,23 @@ const Index = () => {
           <div className="lg:col-span-6 order-1 lg:order-2 min-h-0">
             <div className="relative h-[40vh] md:h-[50vh] lg:h-full min-h-[300px]">
               <CharacterDisplay character={currentCharacter} />
-              {currentCharacter.glbStatus && (
+              {currentCharacter.glbStatus ? (
                 <div className="absolute inset-0 pointer-events-none">
-                  <ModelViewer 
+                  <ModelViewer
                     modelUrl={currentCharacter.modelUrl}
                     characterName={currentCharacter.name}
+                    priority="high"
+                    showPerformanceInfo={process.env.NODE_ENV === 'development'}
+                    enableAutoOptimization={true}
+                    quality="high"
+                    onLoadStart={() => console.log(`Loading ${currentCharacter.name}...`)}
+                    onLoadComplete={() => console.log(`Loaded ${currentCharacter.name}`)}
+                    onError={(error) => console.error(`Error loading ${currentCharacter.name}:`, error)}
                   />
+                </div>
+              ) : (
+                <div className="absolute inset-0 pointer-events-none">
+                  <LoadingSkeleton variant="model" />
                 </div>
               )}
             </div>
@@ -118,7 +170,7 @@ const Index = () => {
                     <h3 className="font-semibold text-white text-sm font-mono">PROGRESSO</h3>
                     <p className="text-xs text-cyan-400 font-mono">SUDHANA'S PATH</p>
                   </div>
-                  <Lotus className="w-4 h-4 text-gold animate-pulse ml-auto" />
+                  <Flower className="w-4 h-4 text-gold animate-pulse ml-auto" />
                 </div>
                 <Progress value={progress} className="mb-2 h-2 bg-gray-800" />
                 <div className="flex justify-between text-xs text-cyan-400 mb-3 font-mono">
